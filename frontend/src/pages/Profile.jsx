@@ -10,9 +10,10 @@ const Profile = () => {
   useEffect(() => {
     const fetchProfile = async () => {
       try {
-        const { data } = await axios.get('https://mern-stack-project-user-authentication.onrender.com/profile', {
-          withCredentials: true, // send cookies
-        });
+        const { data } = await axios.get(
+          'https://mern-stack-project-user-authentication.onrender.com/profile',
+          { withCredentials: true } // send cookies
+        );
         setUser(data.user);
       } catch (err) {
         console.error(err);
@@ -25,7 +26,12 @@ const Profile = () => {
 
   const handleLogout = async () => {
     try {
-      await axios.post('https://mern-stack-project-user-authentication.onrender.com/logout', {}, { withCredentials: true });
+      await axios.post(
+        'https://mern-stack-project-user-authentication.onrender.com/logout',
+        {},
+        { withCredentials: true }
+      );
+      setUser(null); // clear user data
       navigate('/login'); // redirect to login
     } catch (err) {
       console.error(err);

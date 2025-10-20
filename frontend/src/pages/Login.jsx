@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import '../stylesheets/Login.css';
 
 const Login = () => {
@@ -62,7 +62,7 @@ const Login = () => {
         )}
 
         <p>
-          Don't have an account? <a href="/signup">Sign Up</a>
+          Don't have an account? <Link to="/signup">Sign Up</Link>
         </p>
       </div>
     </div>

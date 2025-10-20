@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { Link, useNavigate } from 'react-router-dom';
 import '../stylesheets/Signup.css';
 
 const Signup = () => {
@@ -7,21 +8,27 @@ const Signup = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [message, setMessage] = useState('');
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault(); // Prevent page reload
 
     try {
-      const { data } = await axios.post('https://mern-stack-project-user-authentication.onrender.com/signup', {
-        fullname,
-        email,
-        password
-      });
+      const { data } = await axios.post(
+        'https://mern-stack-project-user-authentication.onrender.com/signup',
+        { fullname, email, password }
+      );
 
       setMessage(data.message || 'Signup successful!');
       setFullname('');
       setEmail('');
       setPassword('');
+
+      // Redirect to login after 1 second
+      setTimeout(() => {
+        navigate('/login');
+      }, 1000);
+
     } catch (err) {
       setMessage(err.response?.data?.message || 'Signup failed. Try again.');
       console.error(err);
@@ -64,7 +71,7 @@ const Signup = () => {
         )}
 
         <p>
-          Already have an account? <a href="/login">Login</a>
+          Already have an account? <Link to="/login">Login</Link>
         </p>
       </div>
     </div>

@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import axios from 'axios';
 import '../stylesheets/Home.css';
 
@@ -12,7 +12,7 @@ const Home = () => {
         await axios.get('https://mern-stack-project-user-authentication.onrender.com/profile', { withCredentials: true });
         navigate('/profile');
       } catch (err) {
-        // Not logged in → stay on home
+        console.log("User not logged in");
       }
     };
 
@@ -25,8 +25,8 @@ const Home = () => {
         <h1>Welcome to Our App</h1>
         <p>Login or Sign Up to continue</p>
         <div className="home-buttons">
-          <a href="/login" className="btn">Login</a>
-          <a href="/signup" className="btn signup-btn">Sign Up</a>
+          <Link to="/login" className="btn">Login</Link>
+          <Link to="/signup" className="btn signup-btn">Sign Up</Link>
         </div>
       </div>
     </div>
