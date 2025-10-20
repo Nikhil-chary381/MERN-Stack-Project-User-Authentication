@@ -9,7 +9,7 @@ const Home = () => {
   useEffect(() => {
     const checkLogin = async () => {
       try {
-        await axios.get('http://localhost:4000/profile', { withCredentials: true });
+        await axios.get('https://mern-stack-project-user-authentication.onrender.com/profile', { withCredentials: true });
         navigate('/profile');
       } catch (err) {
         // Not logged in → stay on home
