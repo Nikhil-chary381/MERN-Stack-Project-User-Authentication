@@ -10,7 +10,7 @@ const Profile = () => {
   useEffect(() => {
     const fetchProfile = async () => {
       try {
-        const { data } = await axios.get('http://localhost:4000/profile', {
+        const { data } = await axios.get('https://mern-stack-project-user-authentication.onrender.com/profile', {
           withCredentials: true, // send cookies
         });
         setUser(data.user);
@@ -25,7 +25,7 @@ const Profile = () => {
 
   const handleLogout = async () => {
     try {
-      await axios.post('http://localhost:4000/logout', {}, { withCredentials: true });
+      await axios.post('https://mern-stack-project-user-authentication.onrender.com/logout', {}, { withCredentials: true });
       navigate('/login'); // redirect to login
     } catch (err) {
       console.error(err);
