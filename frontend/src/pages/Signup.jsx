@@ -12,7 +12,7 @@ const Signup = () => {
     e.preventDefault(); // Prevent page reload
 
     try {
-      const { data } = await axios.post('http://localhost:4000/signup', {
+      const { data } = await axios.post('https://mern-stack-project-user-authentication.onrender.com/signup', {
         fullname,
         email,
         password
