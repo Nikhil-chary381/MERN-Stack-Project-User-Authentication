@@ -14,7 +14,7 @@ const PORT = process.env.PORT || 4000;
 
 // ================= MIDDLEWARE =================
 app.use(cors({
-  origin: 'http://localhost:3000',
+  origin: 'https://mern-stack-project-user-authentication-rc71.onrender.com/',
   credentials: true
 }));
 app.use(express.json());
