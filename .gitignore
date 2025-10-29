@@ -1,0 +1,10 @@
+# Ignore backend environment file containing secrets
+Backend/.env
+
+# Ignore local node_modules in backend and frontend (optional)
+Backend/node_modules/
+frontend/node_modules/
+
+# Optional: OS files
+.DS_Store
+Thumbs.db
